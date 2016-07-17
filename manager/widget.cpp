@@ -45,25 +45,15 @@ void Widget::on_pushButton_clicked()
 
         }
 
-<<<<<<< HEAD
+
         if(flag==true){
-//                   this->close();
-//                    Dialog *dlg=new Dialog();
-//                    dlg->show();
+            this->close();
+                    Dialog *dlg=new Dialog();
+                    dlg->show();
             qDebug()<<"succeed!";
         }
         else{
             qDebug()<<"failed!";
         }
 
-
-
-=======
-        if(flag==true)
-        {
-            this->close();
-            Dialog *dlg=new Dialog();
-            dlg->show();
-        }
->>>>>>> 4979fa2396e0060b0621b892a85d13e9d10a47b6
 }
