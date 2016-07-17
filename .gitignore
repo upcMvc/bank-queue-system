@@ -2,5 +2,5 @@ build*
 */.qmake*
 */debug
 */release
-*.pro.*
+*.pro.us*
 */Make*

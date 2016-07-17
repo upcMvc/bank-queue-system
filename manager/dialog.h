@@ -5,9 +5,12 @@
 #include <QTimer>
 
 
+
 namespace Ui {
 class Dialog;
 }
+
+class QUdpSocket;
 
 class Dialog : public QDialog
 {
@@ -20,8 +23,11 @@ public:
 
 private:
     Ui::Dialog *ui;
+    QUdpSocket *receiver;
+
 public slots:
     void time();
+    void processPendingDatagram();
 };
 void time();
 #endif // DIALOG_H

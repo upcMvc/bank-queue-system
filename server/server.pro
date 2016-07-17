@@ -5,6 +5,8 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += network
+QT       += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -13,8 +15,10 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        server.cpp
+        server.cpp \
+    sql.cpp
 
-HEADERS  += server.h
+HEADERS  += server.h \
+    sql.h
 
 FORMS    += server.ui
