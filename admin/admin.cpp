@@ -47,10 +47,7 @@ bool Widget::createEmployee(QString username,QString password)
     query.exec("create table employee (id INTEGER PRIMARY KEY, "
                "name varchar(20),"
                "password varchar(20))");
-    query.exec("insert into employee(name,password) values(" + username + "," + password + ")");
-//    query.prepare("insert into employee(name,password) values(?,?)");
-//    query.addBindValue(username);
-//    query.addBindValue(password);
+    query.exec("insert into employee(name,password) values('" + username + "','" + password + "')");
     return true;
 }
 
