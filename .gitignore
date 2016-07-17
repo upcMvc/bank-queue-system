@@ -1,2 +1,10 @@
 build*
+<<<<<<< HEAD
 */*.pro.user
+=======
+*/.qmake*
+*/debug
+*/release
+*/*.pro.us*
+*/Make*
+>>>>>>> 4979fa2396e0060b0621b892a85d13e9d10a47b6

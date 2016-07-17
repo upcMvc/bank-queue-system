@@ -4,7 +4,6 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QDebug>
-
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Widget)
@@ -30,7 +29,8 @@ bool Widget::createManager(QString username,QString password)
     query.exec("create table manager (id INTEGER PRIMARY KEY, "
                "name varchar(20),"
                "password varchar(20))");
-    query.exec("insert into manager(name,password) values(" + username + "," + password + ")");
+    query.exec("insert into manager(name,password) values('" + username + "','" + password + "')");
+    db.close();
     return true;
 }
 
@@ -47,7 +47,7 @@ bool Widget::createEmployee(QString username,QString password)
     query.exec("create table employee (id INTEGER PRIMARY KEY, "
                "name varchar(20),"
                "password varchar(20))");
-    query.exec("insert into employee(name,password) values(" + username + "," + password + ")");
+    query.exec("insert into employee(name,password) values('" + username + "','" + password + "')");
     return true;
 }
 
