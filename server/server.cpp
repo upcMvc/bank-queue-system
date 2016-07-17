@@ -2,6 +2,7 @@
 #include "ui_server.h"
 #include <QtNetwork>
 #include "sql.h"
+#include "send.h"
 
 server::server(QWidget *parent) :
     QMainWindow(parent),
@@ -11,6 +12,7 @@ server::server(QWidget *parent) :
     receive = new QUdpSocket(this);
     serversql = new sql();
     receive->bind(45454,QUdpSocket::ShareAddress);
+    sendsignal = new send();
     connect(receive, SIGNAL(readyRead()), this, SLOT(processPendingDatagram()));
 }
 
@@ -31,7 +33,15 @@ void server::processPendingDatagram()
         char signal = tempsignal[0].toLatin1();//转换成switch可识别的
         switch (signal) {
         case 'a':
-            qDebug()<<"adsa";
+            if(serversql->creatUser(0) == true)
+                qDebug()<<"创建成功";
+            break;
+        case 'b':
+            if(serversql->creatUser() == true)
+                qDebug()<<"创建成功";
+            break;
+        case 'c':
+            serversql->mydebug();
             break;
         default:
             break;
@@ -40,3 +50,4 @@ void server::processPendingDatagram()
         qDebug()<<"";
     }
 }
+

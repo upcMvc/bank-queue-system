@@ -4,6 +4,7 @@
 #include <QMainWindow>
 class QUdpSocket;
 class sql;
+class send;
 
 namespace Ui {
 class server;
@@ -16,9 +17,9 @@ class server : public QMainWindow
 public:
     explicit server(QWidget *parent = 0);
     ~server();
-    QUdpSocket *sender;
     QUdpSocket *receive;
     sql        *serversql;
+    send       *sendsignal;
 
 
 private:

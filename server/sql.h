@@ -10,6 +10,9 @@ public:
     QSqlQuery *query;
     bool creatUser();
     bool creatUser(int);
+    void mydebug();//打印所有表 调试用的
+    int getCommonUser();
+    int getVIPUser();
 };
 
 #endif // SQL_H
