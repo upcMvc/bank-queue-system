@@ -58,18 +58,6 @@ void Widget::on_pushButton_clicked()
     QString password = ui->lineEdit_2->text();
     createManager(username,password);
     QMessageBox::information(this,"infomation","插入成功");
-    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("../bank.sql");
-    if (!db.open()) {
-        QMessageBox::critical(0, "Cannot open database",
-            "Unable to establish a database connection.", QMessageBox::Cancel);
-    }
-    QSqlQuery query;
-    query.exec("select * from manager");
-    while(query.next())
-    {
-         qDebug()<<query.value(1).toString();
-    }
 }
 
 

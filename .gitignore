@@ -3,4 +3,4 @@ build*
 */debug
 */release
 *.pro.*
-Make*
+*/Make*
