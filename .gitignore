@@ -1,1 +1,6 @@
 build*
+*/.qmake*
+*/debug
+*/release
+*.pro.*
+Make*
