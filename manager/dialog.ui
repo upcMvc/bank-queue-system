@@ -105,6 +105,19 @@ p, li { white-space: pre-wrap; }
     <string>Time:</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>10</y>
+     <width>91</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>等待数据</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
