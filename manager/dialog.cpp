@@ -46,7 +46,7 @@ void Dialog::processPendingDatagram(){
 
         //接受数据，存到datagram中
         receiver->readDatagram(datagram.data(),datagram.size());
-        ui->label->setText(datagram);
+        ui->label_5->setText(datagram);
     }
 }
 
