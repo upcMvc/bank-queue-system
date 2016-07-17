@@ -4,7 +4,6 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QDebug>
-
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Widget)
@@ -30,7 +29,8 @@ bool Widget::createManager(QString username,QString password)
     query.exec("create table manager (id INTEGER PRIMARY KEY, "
                "name varchar(20),"
                "password varchar(20))");
-    query.exec("insert into manager(name,password) values(" + username + "," + password + ")");
+    query.exec("insert into manager(name,password) values('" + username + "','" + password + "')");
+    db.close();
     return true;
 }
 
@@ -48,6 +48,9 @@ bool Widget::createEmployee(QString username,QString password)
                "name varchar(20),"
                "password varchar(20))");
     query.exec("insert into employee(name,password) values(" + username + "," + password + ")");
+//    query.prepare("insert into employee(name,password) values(?,?)");
+//    query.addBindValue(username);
+//    query.addBindValue(password);
     return true;
 }
 
@@ -58,6 +61,18 @@ void Widget::on_pushButton_clicked()
     QString password = ui->lineEdit_2->text();
     createManager(username,password);
     QMessageBox::information(this,"infomation","插入成功");
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("../bank.sql");
+    if (!db.open()) {
+        QMessageBox::critical(0, "Cannot open database",
+            "Unable to establish a database connection.", QMessageBox::Cancel);
+    }
+    QSqlQuery query;
+    query.exec("select * from manager");
+    while(query.next())
+    {
+         qDebug()<<query.value(1).toString();
+    }
 }
 
 
