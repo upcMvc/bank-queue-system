@@ -1,9 +1,9 @@
 build*
 */*.pro.user
-=======
 */.qmake*
 */debug
 */release
 */*.pro.us*
 */Make*
 */*.cpp.autosave
+server/*autosave

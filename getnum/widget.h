@@ -2,16 +2,10 @@
 #define WIDGET_H
 
 #include <QWidget>
-#include <QTimer>
 
 namespace Ui {
 class Widget;
 }
-
-
-class QUdpSocket;
-
-
 
 class Widget : public QWidget
 {
@@ -28,8 +22,6 @@ private slots:
 
 private:
     Ui::Widget *ui;
-    QUdpSocket *sender;
 };
-
 
 #endif // WIDGET_H

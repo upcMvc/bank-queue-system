@@ -10,6 +10,8 @@ QT       +=network
 
 QT       +=sql
 
+UI_DIR += ./GeneratedFiles
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = manager
@@ -25,4 +27,7 @@ HEADERS  += widget.h \
 
 FORMS    += widget.ui \
     dialog.ui
+
+RESOURCES +=
+
 
