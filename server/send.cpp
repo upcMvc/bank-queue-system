@@ -1,6 +1,6 @@
 #include "send.h"
 #include <QtNetwork>
-
+#include "config.h"
 send::send()
 {
     sender = new QUdpSocket();
@@ -13,6 +13,65 @@ bool send::sendData(QString signal,QString data1)
     senddata.append(data1);
     QByteArray datagram = senddata.toLatin1();
     sender->writeDatagram(datagram.data(), datagram.size(),
-                          QHostAddress::LocalHost, 45454);
+                          QHostAddress(config::sendhost), 45454);
+    return true;
+}
+bool send::sendData(QString signal,QString data1,QString data2)
+{
+    QString senddata;
+    senddata.append(signal + ",");
+    senddata.append(data1 + ",");
+    senddata.append(data2);
+    QByteArray datagram = senddata.toLatin1();
+    sender->writeDatagram(datagram.data(), datagram.size(),
+                          QHostAddress(config::sendhost), 45454);
+    return true;
+}
+bool send::sendData(QString signal,QString data1,QString data2,QString data3)
+{
+    QString senddata;
+    senddata.append(signal + ",");
+    senddata.append(data1 + ",");
+    senddata.append(data2 + ",");
+    senddata.append(data3);
+    QByteArray datagram = senddata.toLatin1();
+    sender->writeDatagram(datagram.data(), datagram.size(),
+                          QHostAddress(config::sendhost), 45454);
+    return true;
+}
+bool send::sendData(QString signal,QString data1,QString data2,QString data3,QString data4)
+{
+    QString senddata;
+    senddata.append(signal + ",");
+    senddata.append(data1 + ",");
+    senddata.append(data2 + ",");
+    senddata.append(data3 + ",");
+    senddata.append(data4);
+    QByteArray datagram = senddata.toLatin1();
+    sender->writeDatagram(datagram.data(), datagram.size(),
+                          QHostAddress(config::sendhost), 45454);
+    return true;
+}
+bool send::sendData(QString signal,QString data1,QString data2,QString data3,QString data4,
+                    QString data5,QString data6,QString data7,QString data8,QString data9,
+                    QString data10,QString data11,QString data12)
+{
+    QString senddata;
+    senddata.append(signal + ",");
+    senddata.append(data1 + ",");
+    senddata.append(data2 + ",");
+    senddata.append(data3 + ",");
+    senddata.append(data4 + ",");
+    senddata.append(data5 + ",");
+    senddata.append(data6 + ",");
+    senddata.append(data7 + ",");
+    senddata.append(data8 + ",");
+    senddata.append(data9 + ",");
+    senddata.append(data10 + ",");
+    senddata.append(data11 + ",");
+    senddata.append(data12 );
+    QByteArray datagram = senddata.toLatin1();
+    sender->writeDatagram(datagram.data(), datagram.size(),
+                          QHostAddress(config::sendhost), 45454);
     return true;
 }

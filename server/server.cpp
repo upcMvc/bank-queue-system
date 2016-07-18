@@ -13,7 +13,9 @@ server::server(QWidget *parent) :
     serversql = new sql();
     receive->bind(45454,QUdpSocket::ShareAddress);
     sendsignal = new send();
+    sendsignal->sendData("1234a","as","da","haha","dsff","as","da","haha","dsff","as","da","haha","dsff");
     connect(receive, SIGNAL(readyRead()), this, SLOT(processPendingDatagram()));
+
 }
 
 server::~server()

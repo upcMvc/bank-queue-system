@@ -17,10 +17,12 @@ TEMPLATE = app
 SOURCES += main.cpp\
         server.cpp \
     sql.cpp \
-    send.cpp
+    send.cpp \
+    config.cpp
 
 HEADERS  += server.h \
     sql.h \
-    send.h
+    send.h \
+    config.h
 
 FORMS    += server.ui
