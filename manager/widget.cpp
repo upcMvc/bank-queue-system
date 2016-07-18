@@ -19,6 +19,11 @@ Widget::Widget(QWidget *parent) :
     ui->lineEdit_2->setEchoMode(QLineEdit::Password);
     Widget::setWindowTitle(tr("登陆"));
 
+    //向服务器发射请求
+    sender=new QUdpSocket(this);
+    QByteArray datagram="l";
+    sender->writeDatagram(datagram.data(),datagram.size(),QHostAddress::Broadcast,45454);
+
 
 
 }
