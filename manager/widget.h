@@ -8,7 +8,11 @@ namespace Ui {
 class Widget;
 }
 
+
 class QUdpSocket;
+
+
+
 class Widget : public QWidget
 {
     Q_OBJECT

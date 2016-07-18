@@ -20,10 +20,7 @@ Widget::Widget(QWidget *parent) :
     Widget::setWindowTitle(tr("登陆"));
 
     //向服务器发射请求
-    sender=new QUdpSocket();
-    QByteArray datagram="l";
-    sender->writeDatagram(datagram.data(),datagram.size(),QHostAddress("172.19.99.75"),45454);
-
+    sender=new QUdpSocket(this);
 
 
 }
@@ -35,6 +32,7 @@ Widget::~Widget()
 
 void Widget::on_pushButton_clicked()
 {
+
 
 
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
@@ -55,6 +53,8 @@ void Widget::on_pushButton_clicked()
         this->close();
         Dialog *dlg=new Dialog();
         dlg->show();
+        QByteArray datagram="l";
+        sender->writeDatagram(datagram.data(),datagram.size(),QHostAddress("172.19.99.75"),45454);
     }
     else{
         QMessageBox::information(this,tr("警告"),tr("对不起，密码或用户名输入错误"));

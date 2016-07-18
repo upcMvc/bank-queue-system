@@ -15,7 +15,6 @@ Dialog::Dialog(QWidget *parent) :
     ui->setupUi(this);
     ui->label_5->deleteLater();
     ui->pushButton->deleteLater();
-    ui->textEdit->setText("");
     Dialog::setWindowTitle(tr("经理管理页面"));
 
 
