@@ -7,6 +7,8 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QDebug>
+#include <QIcon>
+
 
 
 Widget::Widget(QWidget *parent) :
@@ -15,6 +17,9 @@ Widget::Widget(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->lineEdit_2->setEchoMode(QLineEdit::Password);
+    Widget::setWindowTitle(tr("登陆"));
+
+
 
 }
 

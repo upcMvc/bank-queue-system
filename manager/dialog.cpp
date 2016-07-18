@@ -13,6 +13,10 @@ Dialog::Dialog(QWidget *parent) :
     ui(new Ui::Dialog)
 {
     ui->setupUi(this);
+    ui->label_5->deleteLater();
+    ui->pushButton->deleteLater();
+    ui->textEdit->setText("");
+    Dialog::setWindowTitle(tr("经理管理页面"));
 
 
     //时间表
@@ -52,7 +56,7 @@ void Dialog::processPendingDatagram(){
 
         //接受数据，存到datagram中
         receiver->readDatagram(datagram.data(),datagram.size());
-        ui->label_5->setText(datagram);
+
     }
 
     //将QByteArray转换成Qstring
