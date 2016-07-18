@@ -62,7 +62,6 @@ void server::processPendingDatagram()
             sendAllData();
             break;
         case 'f':
-            sendAllData();
             break;
         default:
             break;
