@@ -20,8 +20,8 @@ public:
     QUdpSocket *receive;
     sql        *serversql;
     send       *sendsignal;
-
-
+    bool sendAllData();//向经理端发送所有数据
+    bool sendUserAndVipUser();//向取号端发送有几个vip和普通用户排队
 private:
     Ui::server *ui;
 

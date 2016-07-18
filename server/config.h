@@ -6,7 +6,10 @@ class config
 {
 public:
     config();
-    static char sendhost[];
+    static char managerhost[];
+    static char counterhost[];
+    static char customhost[];
+
 };
 
 #endif // CONFIG_H
