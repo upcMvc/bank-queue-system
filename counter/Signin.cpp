@@ -57,7 +57,6 @@ void Signin::on_pushButton_clicked()
     if (flag)
     {
         reject();
-
     }
     else
     {
