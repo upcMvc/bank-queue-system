@@ -8,7 +8,7 @@
 #include <QSqlQuery>
 #include <QDebug>
 #include <QIcon>
-
+#include <QtNetwork>
 
 
 Widget::Widget(QWidget *parent) :
@@ -20,9 +20,9 @@ Widget::Widget(QWidget *parent) :
     Widget::setWindowTitle(tr("登陆"));
 
     //向服务器发射请求
-    sender=new QUdpSocket(this);
+    sender=new QUdpSocket();
     QByteArray datagram="l";
-    sender->writeDatagram(datagram.data(),datagram.size(),QHostAddress::Broadcast,45454);
+    sender->writeDatagram(datagram.data(),datagram.size(),QHostAddress("172.19.99.75"),45454);
 
 
 

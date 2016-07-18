@@ -8,6 +8,7 @@ namespace Ui {
 class Widget;
 }
 
+class QUdpSocket;
 class Widget : public QWidget
 {
     Q_OBJECT
@@ -23,6 +24,7 @@ private slots:
 
 private:
     Ui::Widget *ui;
+    QUdpSocket *sender;
 };
 
 
