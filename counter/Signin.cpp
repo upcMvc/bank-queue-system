@@ -40,29 +40,28 @@ void Signin::on_pushButton_clicked()
 
     QMessageBox error;
     error.setWindowTitle("登录失败");
-    QString name;
-    QString password;
-    name = ui->nameLineEdit->text();
-    password = ui->passwordLineEdit->text();
-    //qDebug()<<password;
+
+//    qDebug()<<query.value(1).toString();
+//    qDebug()<<ui->nameLineEdit->text() ;
+
    while (query.next()) {
-        qDebug()<<query.value(1).toString();
-        if (query.value(1).toString() == name && query.value(2).toString() == password)
+
+            if (query.value(1).toString() == ui->nameLineEdit->text() && query.value(2).toString() == ui->passwordLineEdit->text())
         {
             flag=true;
             break;
         }
     }
-
+    qDebug()<<flag;
     if (flag)
     {
         reject();
-
     }
     else
     {
         error.setText("密码或账户输入错误");
         error.exec();
     }
+
 }
 

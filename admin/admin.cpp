@@ -48,6 +48,7 @@ bool Widget::createEmployee(QString username,QString password)
                "name varchar(20),"
                "password varchar(20))");
     query.exec("insert into employee(name,password) values('" + username + "','" + password + "')");
+    db.close();
     return true;
 }
 
@@ -65,6 +66,6 @@ void Widget::on_pushButton_2_clicked()
 {
     QString username = ui->lineEdit_3->text();
     QString password = ui->lineEdit_4->text();
-    createManager(username,password);
+    createEmployee(username,password);
     QMessageBox::information(this,"infomation","插入成功");
 }

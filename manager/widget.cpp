@@ -3,7 +3,6 @@
 #include "dialog.h"
 #include <QString>
 #include <QMessageBox>
-#include <QMessageBox>
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QDebug>
