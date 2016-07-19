@@ -15,7 +15,7 @@ class evaluate : public QDialog
 public:
     explicit evaluate(QWidget *parent = 0);
     ~evaluate();
-    int value;
+    QString value;
     QMessageBox thanks;
 
 
