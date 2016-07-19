@@ -6,6 +6,8 @@
 
 QT       += core gui
 
+QT       +=network
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = jiaohao
@@ -13,8 +15,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        widget.cpp
+        widget.cpp \
+    close.cpp
 
-HEADERS  += widget.h
+HEADERS  += widget.h \
+    close.h
 
-FORMS    += widget.ui
+FORMS    += widget.ui \
+    close.ui
