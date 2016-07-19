@@ -85,7 +85,7 @@ void Counter::on_callAgainButton_clicked()
     qDebug()<<config::getnumber;
      send *s = new send();
     QString signal = "g";
-    QString counternumber = config::getnumber;
+    QString counternumber = config::name;
     QString number = config::getnumber;
     s->sendDataToServer(signal,counternumber,number);
 }
