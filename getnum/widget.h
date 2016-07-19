@@ -2,10 +2,13 @@
 #define WIDGET_H
 
 #include <QWidget>
+#include <QTimer>
 
 namespace Ui {
 class Widget;
 }
+
+class QUdpSocket;
 
 class Widget : public QWidget
 {
@@ -20,8 +23,17 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void time();
+
+    void processPendingDatagram();
+
 private:
     Ui::Widget *ui;
+    QUdpSocket *sender;
+    QUdpSocket *receiver;
+
 };
+
+
 
 #endif // WIDGET_H
