@@ -129,6 +129,17 @@ int sql::getDealUser(QString number)
 }
 void sql::addTest()
 {
-    query->exec("insert into user(isvip,isdeal) values('0','0')");
-    query->exec("insert into user(isvip,isdeal,remark,number) values('0','0','3','1')");
+//    query->exec("insert into user(isvip,isdeal) values('0','0')");
+//    query->exec("insert into user(isvip,isdeal,remark,number) values('0','0','3','1')");
+    query->exec("insert into user(isvip,isdeal) values('1','0')");
+}
+QString sql::getCallNumber()
+{
+    query->exec("SELECT * FROM user WHERE isdeal = '0' ORDER BY isvip DESC ");
+    while(query->next())
+    {
+        return query->value(0).toString();
+
+    }
+    return "0";
 }

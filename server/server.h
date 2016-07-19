@@ -22,6 +22,7 @@ public:
     send       *sendsignal;
     bool sendAllData();//向经理端发送所有数据
     bool sendUserAndVipUser();//向取号端发送有几个vip和普通用户排队
+//    bool callNumber(QString);//向柜台端发送叫到号，向取号端发送几号到几号柜台办理
 private:
     Ui::server *ui;
 

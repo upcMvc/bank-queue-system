@@ -26,6 +26,8 @@ public:
 
     int getDealUser(QString);//获取某柜台受理人数
     void addTest();//增加测试用例
+
+    QString getCallNumber();
 };
 
 #endif // SQL_H

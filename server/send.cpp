@@ -11,17 +11,17 @@ send::~send()
     delete sender;
 }
 
-bool send::sendDataToCounter(QString signal,QString data1)
+bool send::sendDataToCounter(QString signal,QString data1,char host[])
 {
     QString senddata;
     senddata.append(signal + ",");
     senddata.append(data1);
     QByteArray datagram = senddata.toLatin1();
     sender->writeDatagram(datagram.data(), datagram.size(),
-                          QHostAddress(config::counterhost), 45454);
+                          QHostAddress(host), 45454);
     return true;
 }
-bool send::sendDataToCounter(QString signal,QString data1,QString data2)
+bool send::sendDataToCounter(QString signal,QString data1,QString data2,char host[])
 {
     QString senddata;
     senddata.append(signal + ",");
@@ -29,10 +29,10 @@ bool send::sendDataToCounter(QString signal,QString data1,QString data2)
     senddata.append(data2);
     QByteArray datagram = senddata.toLatin1();
     sender->writeDatagram(datagram.data(), datagram.size(),
-                          QHostAddress(config::counterhost), 45454);
+                          QHostAddress(host), 45454);
     return true;
 }
-bool send::sendDataToCounter(QString signal,QString data1,QString data2,QString data3)
+bool send::sendDataToCounter(QString signal,QString data1,QString data2,QString data3,char host[])
 {
     QString senddata;
     senddata.append(signal + ",");
@@ -41,10 +41,10 @@ bool send::sendDataToCounter(QString signal,QString data1,QString data2,QString 
     senddata.append(data3);
     QByteArray datagram = senddata.toLatin1();
     sender->writeDatagram(datagram.data(), datagram.size(),
-                          QHostAddress(config::counterhost), 45454);
+                          QHostAddress(host), 45454);
     return true;
 }
-bool send::sendDataToCounter(QString signal,QString data1,QString data2,QString data3,QString data4)
+bool send::sendDataToCounter(QString signal,QString data1,QString data2,QString data3,QString data4,char host[])
 {
     QString senddata;
     senddata.append(signal + ",");
@@ -54,7 +54,7 @@ bool send::sendDataToCounter(QString signal,QString data1,QString data2,QString 
     senddata.append(data4);
     QByteArray datagram = senddata.toLatin1();
     sender->writeDatagram(datagram.data(), datagram.size(),
-                          QHostAddress(config::counterhost), 45454);
+                          QHostAddress(host), 45454);
     return true;
 }
 bool send::sendDataToManager(QString signal,QString data1,QString data2,QString data3,QString data4,
