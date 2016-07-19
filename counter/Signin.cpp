@@ -1,5 +1,6 @@
 #include "signin.h"
 #include "ui_signin.h"
+#include "config.h"
 #include <QString>
 #include <QMessageBox>
 #include <QSqlDatabase>
@@ -25,6 +26,8 @@ void Signin::closeEvent(QCloseEvent *event)
 void Signin::on_pushButton_clicked()
 {
 
+
+
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("../bank.sql");
     if(!db.open())
@@ -40,7 +43,7 @@ void Signin::on_pushButton_clicked()
 
     QMessageBox error;
     error.setWindowTitle("登录失败");
-
+      config::name= ui->nameLineEdit->text();
 
 
    while (query.next()) {

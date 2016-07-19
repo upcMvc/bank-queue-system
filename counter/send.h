@@ -10,8 +10,9 @@ public:
     /*
      * 处理发送数据函数
      */
-    bool sendDataToCounter(QString,QString);
-    bool sendDataToCounter(QString,QString,QString);
+    bool sendDataToServer(QString,QString);
+    bool sendDataToServer(QString,QString,QString);
+     bool sendDataToServer(QString,QString,QString,QString);
 
     ~send();
 
