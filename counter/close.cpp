@@ -11,7 +11,9 @@ Close::Close(QWidget *parent) :
 {
     ui->setupUi(this);
     QPalette palette;
-    palette.setBrush(this->backgroundRole(),QBrush(QPixmap("../untitled/111.jpg")));  //括号内为图片的相对目录
+
+    palette.setBrush(this->backgroundRole(),QBrush(QPixmap("../img/t6.jpg")));
+
     this->setPalette(palette);
 }
 

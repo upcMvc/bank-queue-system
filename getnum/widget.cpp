@@ -8,6 +8,8 @@
 #include <QDebug>
 #include <QCloseEvent>
 #include <QEvent>
+#include <QPalette>
+#include <QBrush>
 
 
 Widget::Widget(QWidget *parent) :
@@ -15,6 +17,9 @@ Widget::Widget(QWidget *parent) :
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
+    QPalette palette;
+    palette.setBrush(this->backgroundRole(),QBrush(QPixmap("../img/zx.jpg")));  //括号内为图片的相对目录
+    this->setPalette(palette);
 
     sender=new QUdpSocket(this);
 
