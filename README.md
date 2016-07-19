@@ -1,4 +1,4 @@
-# 银行排队系统     ！[logo](/img/LOGO.jpg)
+# 银行排队系统     ![logo](/img/LOGO.jpg)
 
 ## 项目介绍:
 
@@ -37,3 +37,6 @@
 * 当前时间显示
 
 ![取号UI界面](/img/3.png)
+
+#### license
+[MIT](LICENSE)

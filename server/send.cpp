@@ -126,3 +126,16 @@ bool send::sendDataToCustomer(QString signal,QString data1,QString data2,QString
                           QHostAddress(config::customhost), 45454);
     return true;
 }
+bool send::sendDataToManager(QString signal,QString data1,QString data2,QString data3,QString data4)
+{
+    QString senddata;
+    senddata.append(signal + ",");
+    senddata.append(data1 + ",");
+    senddata.append(data2 + ",");
+    senddata.append(data3 + ",");
+    senddata.append(data4);
+    QByteArray datagram = senddata.toLatin1();
+    sender->writeDatagram(datagram.data(), datagram.size(),
+                          QHostAddress(config::managerhost), 45454);
+    return true;
+}

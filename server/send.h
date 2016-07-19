@@ -21,6 +21,7 @@ public:
     bool sendDataToCustomer(QString,QString,QString,QString,QString);
     bool sendDataToManager(QString,QString,QString,QString,QString,QString,QString,QString,
                   QString,QString,QString,QString,QString);
+    bool sendDataToManager(QString,QString,QString,QString,QString);
     ~send();
 };
 

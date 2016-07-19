@@ -29,5 +29,5 @@ public slots:
     void time();
     void processPendingDatagram();
 };
-void time();
+
 #endif // DIALOG_H
