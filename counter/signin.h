@@ -1,6 +1,7 @@
 #ifndef SIGNIN_H
 #define SIGNIN_H
 
+
 #include <QDialog>
 #include <QEvent>
 #include <QCloseEvent>
@@ -16,9 +17,9 @@ class Signin;
 class Signin : public QDialog
 {
     Q_OBJECT
-//public:
-//    QString *name;
-//    QString *password;
+public:
+//    static QString name;
+//    static QString password;
 //    void getName();
 //    void getPassword();
 

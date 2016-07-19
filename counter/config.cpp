@@ -6,4 +6,6 @@ config::config()
 
 }
 
-char config::servehost[]= "127.0.0.1";
+char config::servehost[]= "172.19.43.206";
+QString config::name = "0";
+QString config::getnumber="0";
