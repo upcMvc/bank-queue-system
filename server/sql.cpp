@@ -130,8 +130,8 @@ int sql::getDealUser(QString number)
 void sql::addTest()
 {
 //    query->exec("insert into user(isvip,isdeal) values('0','0')");
-//    query->exec("insert into user(isvip,isdeal,remark,number) values('0','0','3','1')");
-    query->exec("insert into user(isvip,isdeal) values('1','0')");
+    query->exec("insert into user(isvip,isdeal,remark,number) values('0','1','0','3')");
+//    query->exec("insert into user(isvip,isdeal) values('1','0')");
 }
 QString sql::getCallNumber()
 {
@@ -142,4 +142,31 @@ QString sql::getCallNumber()
 
     }
     return "0";
+}
+bool sql::remark(QString counternumber,QString number,QString re)
+{
+     query->exec("UPDATE user SET isdeal = '1' ,remark = '" + re + "' ,number = '" + counternumber + "' WHERE id = '" + number + "' ");
+     return true;
+}
+QString sql::sendRemarkToManager()
+{
+      QString data;
+      query->exec("SELECT * FROM user WHERE isdeal = '1'");
+      while(query->next())
+      {
+            data.append(query->value(1).toString() + ',');
+            data.append(query->value(0).toString() + ',');
+            data.append(query->value(4).toString() + ',');
+            data.append(query->value(3).toString() + ',');
+      }
+      return data;
+}
+QString sql::isvip(QString number)
+{
+   query->exec("SELECT * FROM user WHERE id = '" + number + "'");
+   while(query->next())
+   {
+        return query->value(1).toString();
+   }
+   return "0";
 }
