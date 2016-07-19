@@ -10,6 +10,10 @@
 #include <QEvent>
 #include <QDebug>
 #include <QtNetwork>
+#include <QBrush>
+#include <QPixmap>
+#include <QPalette>
+
 
 
 Counter::Counter(QWidget *parent) :
@@ -18,6 +22,9 @@ Counter::Counter(QWidget *parent) :
 {
 
     ui->setupUi(this);
+    QPalette palette;
+    palette.setBrush(this->backgroundRole(),QBrush(QPixmap("D:/Qt/jiemian/t6.jpg")));
+    this->setPalette(palette);
     Signin *signin = new Signin(this);
     signin->setGeometry(QRect(500,250,376,247));
     signin->setModal(true);

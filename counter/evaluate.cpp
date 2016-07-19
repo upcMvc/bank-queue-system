@@ -2,12 +2,19 @@
 #include "ui_evaluate.h"
 #include <QMessageBox>
 #include "send.h"
-#include "config.h"
+#include "config.h"#include <QBrush>
+#include <QPixmap>
+#include <QPalette>
+
+
 evaluate::evaluate(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::evaluate)
 {
     ui->setupUi(this);
+    QPalette palette;
+    palette.setBrush(this->backgroundRole(),QBrush(QPixmap("D:/Qt/jiemian/t6.jpg")));
+    this->setPalette(palette);
 }
 
 evaluate::~evaluate()
