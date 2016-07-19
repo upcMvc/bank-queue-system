@@ -1,10 +1,13 @@
 #include "widget.h"
 #include "ui_widget.h"
+#include "close.h"
 #include <QLabel>
 #include <QString>
 #include <QByteArray>
 #include <QtNetwork>
 #include <QDebug>
+#include <QCloseEvent>
+#include <QEvent>
 
 
 Widget::Widget(QWidget *parent) :
@@ -108,5 +111,19 @@ void Widget::processPendingDatagram(){
         }
     }
 
+}
+void Widget::closeEvent(QCloseEvent *event)
+{
+    Close *close = new Close(this);
+    close->setModal(true);
+    close->exec();
+    if (close->flag == 1)
+    {
+        event->accept();
+    }
+    else
+    {
+        event->ignore();
+    }
 }
 
