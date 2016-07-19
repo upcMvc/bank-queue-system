@@ -7,7 +7,9 @@ class config
 public:
     config();
     static char managerhost[];
-    static char counterhost[];
+    static char counterhost1[];
+    static char counterhost2[];
+    static char counterhost3[];
     static char customhost[];
 
 };

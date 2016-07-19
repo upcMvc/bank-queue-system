@@ -11,16 +11,17 @@ public:
     /*
      * 处理发送数据函数
      */
-    bool sendDataToCounter(QString,QString);
-    bool sendDataToCounter(QString,QString,QString);
-    bool sendDataToCounter(QString,QString,QString,QString);
-    bool sendDataToCounter(QString,QString,QString,QString,QString);
+    bool sendDataToCounter(QString,QString,char []);
+    bool sendDataToCounter(QString,QString,QString ,char []);
+    bool sendDataToCounter(QString,QString,QString,QString,char []);
+    bool sendDataToCounter(QString,QString,QString,QString,QString,char []);
     bool sendDataToCustomer(QString,QString);
     bool sendDataToCustomer(QString,QString,QString);
     bool sendDataToCustomer(QString,QString,QString,QString);
     bool sendDataToCustomer(QString,QString,QString,QString,QString);
     bool sendDataToManager(QString,QString,QString,QString,QString,QString,QString,QString,
                   QString,QString,QString,QString,QString);
+    bool sendDataToManager(QString,QString,QString,QString,QString);
     ~send();
 };
 

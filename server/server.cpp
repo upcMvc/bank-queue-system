@@ -4,6 +4,7 @@
 #include "sql.h"
 #include "send.h"
 #include <unistd.h>
+#include "config.h"
 
 server::server(QWidget *parent) :
     QMainWindow(parent),
@@ -17,7 +18,9 @@ server::server(QWidget *parent) :
     sendAllData();
     sendUserAndVipUser();
 //    serversql->addTest();
-    serversql->mydebug();
+    sendRemarkToManager();
+//    serversql->mydebug();
+//    sendsignal->sendDataToCustomer("h","2","1","1");
     connect(receive, SIGNAL(readyRead()), this, SLOT(processPendingDatagram()));
 
 }
@@ -38,21 +41,27 @@ void server::processPendingDatagram()
         datagram.resize(receive->pendingDatagramSize());
         receive->readDatagram(datagram.data(), datagram.size());
         QString data = datagram;
+        QString countnumber,number;
         QString tempsignal = data.section(',',0,0);
         char signal = tempsignal[0].toLatin1();//转换成switch可识别的
+        qDebug()<<data;
         switch (signal) {
         case 'a':
             if(serversql->creatUser(0) == true)
             {
-               sendsignal->sendDataToCounter("e",QString::number(serversql->getAllUser() + 1,10));
+               sendsignal->sendDataToCustomer("e",QString::number(serversql->getAllUser() + 1,10),QString::number(serversql->getCommonUserDealNot(),10),QString::number(serversql->getVIPUserDealNot(),10));
                qDebug()<<"取号成功";
+               //sendUserAndVipUser();
+               sendAllData();
             }
             break;
         case 'b':
             if(serversql->creatUser() == true)
             {
-                sendsignal->sendDataToCounter("e",QString::number(serversql->getAllUser() + 1,10));
+               sendsignal->sendDataToCustomer("x",QString::number(serversql->getAllUser() + 1,10),QString::number(serversql->getCommonUserDealNot(),10),QString::number(serversql->getVIPUserDealNot(),10));
                 qDebug()<<"取号成功";
+//                sendUserAndVipUser();
+                sendAllData();
             }
             break;
         case 'm':
@@ -62,12 +71,30 @@ void server::processPendingDatagram()
             sendAllData();
             break;
         case 'f':
+            countnumber = data.section(',',1,1);//case 中不能定义变量 在上面已经定义
+            number = serversql->getCallNumber();
+            qDebug()<<number;
+            if(countnumber == "1")
+                sendsignal->sendDataToCounter("n",number,config::counterhost1);
+            if(countnumber == "2")
+                sendsignal->sendDataToCounter("n",number,config::counterhost2);
+            if(countnumber == "3")
+                sendsignal->sendDataToCounter("n",number,config::counterhost3);
+            sendsignal->sendDataToCustomer("h",number,countnumber,isvip(number));
+            break;
+        case 'g':
+            countnumber = data.section(',',1,1);
+            number = data.section(',',2,2);
+            sendsignal->sendDataToCustomer("h",number,countnumber,isvip(number));
+            break;
+        case 'i':
+            remark(data.section(',',1,1),data.section(',',2,2),data.section(',',3,3));
+            sendUserAndVipUser();
+            sendRemarkToManager();
             break;
         default:
             break;
         }
-
-        qDebug()<<"";
     }
 }
 bool server::sendAllData()
@@ -88,7 +115,6 @@ bool server::sendAllData()
     qDebug()<<"发送成功";
     return true;
 }
-
 bool server::sendUserAndVipUser()
 {
       sendsignal->sendDataToCustomer("c",
@@ -96,4 +122,27 @@ bool server::sendUserAndVipUser()
       QString::number(serversql->getVIPUserDealNot(),10));
       qDebug()<<"发送成功";
       return true;
+}
+bool server::remark(QString counternumber,QString number,QString re)
+{
+    return serversql->remark(counternumber,number,re);
+}
+bool server::sendRemarkToManager()
+{
+    QString data;
+    data = serversql->sendRemarkToManager();
+    int i = 0;//循环变量
+    while(data.section(',',i,i) == "0" || data.section(',',i,i) =="1")
+    {
+       sendsignal->sendDataToManager("k",data.section(',',i,i),
+                                     data.section(',',i + 1,i +1),
+                                     data.section(',',i + 2,i +2),
+                                     data.section(',',i + 3,i + 3));
+       i+=4;
+    }
+    return true;
+}
+QString server::isvip(QString number)
+{
+    return serversql->isvip(number);
 }
