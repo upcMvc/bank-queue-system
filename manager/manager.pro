@@ -28,6 +28,6 @@ HEADERS  += widget.h \
 FORMS    += widget.ui \
     dialog.ui
 
-RESOURCES +=
+RESOURCES += ico.qrc
 
 

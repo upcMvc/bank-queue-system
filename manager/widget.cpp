@@ -8,13 +8,18 @@
 #include <QDebug>
 #include <QIcon>
 #include <QtNetwork>
-
+#include <QBrush>
+#include <QPixmap>
+#include <QPalette>
 
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
+    QPalette palette;
+    palette.setBrush(this->backgroundRole(),QBrush(QPixmap("../img/050.jpg")));  //括号内为图片的相对目录
+    this->setPalette(palette);
     ui->lineEdit_2->setEchoMode(QLineEdit::Password);
     Widget::setWindowTitle(tr("登陆"));
 

@@ -22,6 +22,9 @@
      <height>31</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 11pt &quot;微软雅黑 Light&quot;;</string>
+   </property>
    <property name="text">
     <string>统计信息如下</string>
    </property>
@@ -51,6 +54,9 @@ p, li { white-space: pre-wrap; }
      <width>151</width>
      <height>41</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 11pt &quot;微软雅黑 Light&quot;;</string>
    </property>
    <property name="text">
     <string>评价信息如下</string>

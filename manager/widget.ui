@@ -14,7 +14,8 @@
    <string>登陆</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="1.png"/>
+   <iconset theme="1.png">
+    <normaloff>.</normaloff>.</iconset>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
@@ -26,7 +27,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 11pt &quot;Arial&quot;;</string>
+    <string notr="true">font: 75 11pt &quot;微软雅黑 Light&quot;;</string>
    </property>
    <property name="text">
     <string>用户名：</string>
@@ -42,7 +43,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 12pt &quot;Arial&quot;;</string>
+    <string notr="true">font: 75 11pt &quot;微软雅黑 Light&quot;;</string>
    </property>
    <property name="text">
     <string>密码：</string>

@@ -5,7 +5,9 @@
 #include <QString>
 #include <QtCore>
 #include <QtNetwork>
-
+#include <QBrush>
+#include <QPixmap>
+#include <QPalette>
 
 
 Dialog::Dialog(QWidget *parent) :
@@ -13,6 +15,9 @@ Dialog::Dialog(QWidget *parent) :
     ui(new Ui::Dialog)
 {
     ui->setupUi(this);
+    QPalette palette;
+    palette.setBrush(this->backgroundRole(),QBrush(QPixmap("../img/050.jpg")));  //括号内为图片的相对目录
+    this->setPalette(palette);
     ui->label_5->deleteLater();
     ui->pushButton->deleteLater();
     Dialog::setWindowTitle(tr("经理管理页面"));
