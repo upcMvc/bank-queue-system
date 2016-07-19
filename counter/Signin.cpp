@@ -41,8 +41,7 @@ void Signin::on_pushButton_clicked()
     QMessageBox error;
     error.setWindowTitle("登录失败");
 
-//    qDebug()<<query.value(1).toString();
-//    qDebug()<<ui->nameLineEdit->text() ;
+
 
    while (query.next()) {
 

@@ -5,12 +5,13 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += network
 QT       += sql
 
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = untitled
+TARGET = counter
 TEMPLATE = app
 
 
@@ -19,13 +20,17 @@ SOURCES += \
     counter.cpp \
     main.cpp \
     close.cpp \
-    evaluate.cpp
+    evaluate.cpp \
+    send.cpp \
+    config.cpp
 
 HEADERS  += \
     signin.h \
     counter.h \
     close.h \
-    evaluate.h
+    evaluate.h \
+    send.h \
+    config.h
 
 FORMS    += \
     signin.ui \
