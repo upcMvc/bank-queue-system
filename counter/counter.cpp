@@ -23,7 +23,7 @@ Counter::Counter(QWidget *parent) :
 
     ui->setupUi(this);
     QPalette palette;
-    palette.setBrush(this->backgroundRole(),QBrush(QPixmap("D:/Qt/jiemian/t6.jpg")));
+    palette.setBrush(this->backgroundRole(),QBrush(QPixmap("../img/t6.jpg")));
     this->setPalette(palette);
     Signin *signin = new Signin(this);
     signin->setGeometry(QRect(500,250,376,247));

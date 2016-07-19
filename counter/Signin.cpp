@@ -6,12 +6,18 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QDebug>
+#include <QBrush>
+#include <QPixmap>
+#include <QPalette>
 
 Signin::Signin(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Signin)
 {
     ui->setupUi(this);
+    QPalette palette;
+    palette.setBrush(this->backgroundRole(),QBrush(QPixmap("../img/t6.jpg")));
+    this->setPalette(palette);
 }
 
 Signin::~Signin()
