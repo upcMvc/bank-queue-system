@@ -23,3 +23,6 @@ HEADERS  += widget.h \
 
 FORMS    += widget.ui \
     close.ui
+
+RESOURCES += \
+    er.qrc
