@@ -1,11 +1,18 @@
 #include "close.h"
 #include "ui_close.h"
+#include <QBrush>
+#include <QPixmap>
+#include <QPalette>
+
 
 Close::Close(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Close)
 {
     ui->setupUi(this);
+    QPalette palette;
+    palette.setBrush(this->backgroundRole(),QBrush(QPixmap("D:/Qt/jiemian/t6.jpg")));
+    this->setPalette(palette);
 }
 
 Close::~Close()

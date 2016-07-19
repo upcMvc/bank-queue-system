@@ -4,11 +4,20 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QDebug>
+#include <QBrush>
+#include <QPixmap>
+#include <QPalette>
+
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
+    QPalette palette;
+    palette.setBrush(this->backgroundRole(),QBrush(QPixmap("D:/Qt/jiemian/t6.jpg")));
+    this->setPalette(palette);
+
+     Widget::setWindowTitle(tr("LOG IN"));
 }
 
 Widget::~Widget()
