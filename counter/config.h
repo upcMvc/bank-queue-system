@@ -10,6 +10,7 @@ public:
     static char servehost[];
     static QString name;
     static QString getnumber;
+    static QString vip;
 
 };
 
