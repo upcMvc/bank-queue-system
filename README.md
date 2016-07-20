@@ -1,4 +1,4 @@
-# 银行排队系统     ![logo](/img/LOGO.png)
+![logo](/img/LOGO.png) # 银行排队系统     
 
 ## 项目介绍:
 

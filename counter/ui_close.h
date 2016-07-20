@@ -35,9 +35,11 @@ public:
         okpushButton = new QPushButton(Close);
         okpushButton->setObjectName(QStringLiteral("okpushButton"));
         okpushButton->setGeometry(QRect(80, 120, 75, 23));
+        okpushButton->setStyleSheet(QStringLiteral(""));
         pushButton_2 = new QPushButton(Close);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
         pushButton_2->setGeometry(QRect(180, 120, 75, 23));
+        pushButton_2->setStyleSheet(QStringLiteral(""));
         label = new QLabel(Close);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(50, 50, 241, 41));
