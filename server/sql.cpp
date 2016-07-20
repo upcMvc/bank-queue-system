@@ -130,7 +130,9 @@ int sql::getDealUser(QString number)
 void sql::addTest()
 {
 //    query->exec("insert into user(isvip,isdeal) values('0','0')");
-    query->exec("insert into user(isvip,isdeal,remark,number) values('0','1','0','3')");
+     query->exec("insert into user(isvip,isdeal,remark,number) values('0','1','0','3')");
+     query->exec("insert into user(isvip,isdeal,remark,number) values('0','1','1','2')");
+     query->exec("insert into user(isvip,isdeal,remark,number) values('0','1','2','1')");
 //    query->exec("insert into user(isvip,isdeal) values('1','0')");
 }
 QString sql::getCallNumber()
@@ -146,6 +148,7 @@ QString sql::getCallNumber()
 bool sql::remark(QString counternumber,QString number,QString re)
 {
      query->exec("UPDATE user SET isdeal = '1' ,remark = '" + re + "' ,number = '" + counternumber + "' WHERE id = '" + number + "' ");
+     mydebug();
      return true;
 }
 QString sql::sendRemarkToManager()

@@ -30,6 +30,7 @@ bool send::sendDataToCounter(QString signal,QString data1,QString data2,char hos
     QByteArray datagram = senddata.toLatin1();
     sender->writeDatagram(datagram.data(), datagram.size(),
                           QHostAddress(host), 45454);
+    qDebug()<<"经理端发送成功";
     return true;
 }
 bool send::sendDataToCounter(QString signal,QString data1,QString data2,QString data3,char host[])

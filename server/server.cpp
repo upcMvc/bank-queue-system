@@ -138,6 +138,7 @@ bool server::sendRemarkToManager()
                                      data.section(',',i + 1,i +1),
                                      data.section(',',i + 2,i +2),
                                      data.section(',',i + 3,i + 3));
+       sleep(1);
        i+=4;
     }
     return true;
