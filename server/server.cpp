@@ -69,6 +69,8 @@ void server::processPendingDatagram()
             break;
         case 'l':
             sendAllData();
+            sleep(1);
+            sendRemarkToManager();
             break;
         case 'f':
             countnumber = data.section(',',1,1);//case 中不能定义变量 在上面已经定义
