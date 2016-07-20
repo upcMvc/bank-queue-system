@@ -82,6 +82,7 @@ void Counter::processPendingDatagram()
         datagram.resize(receiver->pendingDatagramSize());
         receiver->readDatagram(datagram.data(), datagram.size());
         QString data = datagram;
+//        config::vip = data.section(',',1,1);
         config::getnumber = data.section(',',1,1);
         qDebug()<<config::getnumber;
     }

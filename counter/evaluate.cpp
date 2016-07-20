@@ -50,7 +50,7 @@ void evaluate::on_checkBox_2_clicked()
 
 void evaluate::on_checkBox_3_clicked()
 {
-    evaluate::value="0";
+    evaluate::value = "2";
     send *s = new send();
     QString signal = "i";
     s->sendDataToServer(signal,config::name,config::getnumber,value);
